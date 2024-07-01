@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessRightsValidation", "src\AccessRightsValidation\AccessRightsValidation.csproj", "{CE0753AC-4B9D-489F-9D30-7C9E97E2503B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessRightsValidation.DependencyInjection", "src\AccessRightsValidation.DependencyInjection\AccessRightsValidation.DependencyInjection.csproj", "{4AB8FD88-6F01-409D-A796-A28B28A4720F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessRightsValidation.ExampleTests", "tests\AccessRightsValidation.ExampleTests\AccessRightsValidation.ExampleTests.csproj", "{40477C3F-F5B6-4769-9883-61199DA685FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessRightsValidation.ExampleData", "src\AccessRightsValidation.ExampleData\AccessRightsValidation.ExampleData.csproj", "{20998771-004C-4E02-BB32-C8318DC5D12C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessRightsValidation.Benchmarks", "benchmarks\AccessRightsValidation.Benchmarks\AccessRightsValidation.Benchmarks.csproj", "{86559B58-31D4-41F5-8684-AC834BCDA1CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE0753AC-4B9D-489F-9D30-7C9E97E2503B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE0753AC-4B9D-489F-9D30-7C9E97E2503B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE0753AC-4B9D-489F-9D30-7C9E97E2503B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE0753AC-4B9D-489F-9D30-7C9E97E2503B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AB8FD88-6F01-409D-A796-A28B28A4720F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AB8FD88-6F01-409D-A796-A28B28A4720F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AB8FD88-6F01-409D-A796-A28B28A4720F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AB8FD88-6F01-409D-A796-A28B28A4720F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40477C3F-F5B6-4769-9883-61199DA685FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40477C3F-F5B6-4769-9883-61199DA685FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40477C3F-F5B6-4769-9883-61199DA685FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40477C3F-F5B6-4769-9883-61199DA685FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20998771-004C-4E02-BB32-C8318DC5D12C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20998771-004C-4E02-BB32-C8318DC5D12C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20998771-004C-4E02-BB32-C8318DC5D12C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20998771-004C-4E02-BB32-C8318DC5D12C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86559B58-31D4-41F5-8684-AC834BCDA1CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86559B58-31D4-41F5-8684-AC834BCDA1CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86559B58-31D4-41F5-8684-AC834BCDA1CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86559B58-31D4-41F5-8684-AC834BCDA1CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
