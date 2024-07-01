@@ -20,17 +20,17 @@ internal class AccessRightsValidator<TDescriptor, TAction, TUser> : IAccessRight
     public async ValueTask<ValidationResult> Validate(TUser user, CancellationToken cancellationToken = default)
     {
         var context = new ValidationContext<TDescriptor, TAction, TUser>(user, _customData);
+        var errors = new List<ValidationError>();
 
         foreach (var actionGuard in _actionGuards)
         {
             var guardResult = await actionGuard.Execute(context, cancellationToken);
-
-            if (guardResult is false)
+            if (guardResult is not null)
             {
-                return new ValidationResult(false);
+                errors.Add(guardResult);
             }
         }
 
-        return new ValidationResult(true);
+        return new ValidationResult(errors);
     }
 }

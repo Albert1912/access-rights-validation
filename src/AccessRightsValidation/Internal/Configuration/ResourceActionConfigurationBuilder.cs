@@ -19,17 +19,19 @@ internal class ResourceActionConfigurationBuilder<TDescriptor, TAction, TUser>
     }
 
     public IResourceActionConfigurationBuilder<TDescriptor, TAction, TUser> AddGuard(
-        Predicate<IValidationContext<TDescriptor, TAction, TUser>> guard)
+        Predicate<IValidationContext<TDescriptor, TAction, TUser>> guard,
+        Func<IValidationContext<TDescriptor, TAction, TUser>, string>? onValidationFailed = null)
     {
-        _guards.Add(new ActionGuard<TDescriptor, TAction, TUser>(guard));
+        _guards.Add(new ActionGuard<TDescriptor, TAction, TUser>(guard, onValidationFailed));
 
         return this;
     }
 
     public IResourceActionConfigurationBuilder<TDescriptor, TAction, TUser> AddGuard(
-        Func<IValidationContext<TDescriptor, TAction, TUser>, CancellationToken, Task<bool>> guard)
+        Func<IValidationContext<TDescriptor, TAction, TUser>, CancellationToken, Task<bool>> guard,
+        Func<IValidationContext<TDescriptor, TAction, TUser>, string>? onValidationFailed = null)
     {
-        _guards.Add(new ActionAsyncGuard<TDescriptor, TAction, TUser>(guard));
+        _guards.Add(new ActionAsyncGuard<TDescriptor, TAction, TUser>(guard, onValidationFailed));
 
         return this;
     }

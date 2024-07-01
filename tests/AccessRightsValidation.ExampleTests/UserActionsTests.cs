@@ -65,6 +65,8 @@ public class UserActionsTests
 
         //assert
         validationResult.IsSuccess.Should().BeFalse();
+        validationResult.Errors.Count.Should().Be(1);
+        validationResult.Errors[0].Message.Should().Be($"Invalid Role {editor.Role}");
     }
 
     [Fact]

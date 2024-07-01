@@ -10,7 +10,7 @@ public class UserConfiguration : IResourceConfiguration<UserDescriptor, Resource
     {
         builder
             .ConfigureAction(ResourceAction.Create)
-            .AddGuard(context => context.Actor.Role == Role.Admin);
+            .AddGuard(context => context.Actor.Role == Role.Admin, context => $"Invalid Role {context.Actor.Role}");
 
         builder
             .ConfigureAction(ResourceAction.Read)

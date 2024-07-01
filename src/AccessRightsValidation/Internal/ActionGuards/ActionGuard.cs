@@ -6,12 +6,15 @@ internal class ActionGuard<TDescriptor, TAction, TUser> : BaseActionGuard<TDescr
 {
     private readonly Predicate<IValidationContext<TDescriptor, TAction, TUser>> _guard;
 
-    public ActionGuard(Predicate<IValidationContext<TDescriptor, TAction, TUser>> guard)
+    public ActionGuard(
+        Predicate<IValidationContext<TDescriptor, TAction, TUser>> guard,
+        Func<IValidationContext<TDescriptor, TAction, TUser>, string>? onValidationFailed)
+        : base(onValidationFailed)
     {
         _guard = guard;
     }
 
-    public override Task<bool> Execute(
+    protected override Task<bool> ExecuteGuard(
         IValidationContext<TDescriptor, TAction, TUser> validationContext,
         CancellationToken cancellationToken = default)
     {
