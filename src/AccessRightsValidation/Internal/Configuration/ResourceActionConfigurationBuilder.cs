@@ -27,7 +27,7 @@ internal class ResourceActionConfigurationBuilder<TDescriptor, TAction, TUser>
     }
 
     public IResourceActionConfigurationBuilder<TDescriptor, TAction, TUser> AddGuard(
-        Func<IValidationContext<TDescriptor, TAction, TUser>, Task<bool>> guard)
+        Func<IValidationContext<TDescriptor, TAction, TUser>, CancellationToken, Task<bool>> guard)
     {
         _guards.Add(new ActionAsyncGuard<TDescriptor, TAction, TUser>(guard));
 

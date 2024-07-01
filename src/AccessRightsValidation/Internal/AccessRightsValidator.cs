@@ -23,7 +23,7 @@ internal class AccessRightsValidator<TDescriptor, TAction, TUser> : IAccessRight
 
         foreach (var actionGuard in _actionGuards)
         {
-            var guardResult = await actionGuard.Execute(context);
+            var guardResult = await actionGuard.Execute(context, cancellationToken);
 
             if (guardResult is false)
             {

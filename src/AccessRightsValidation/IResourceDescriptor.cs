@@ -1,3 +1,4 @@
 ﻿namespace AccessRightsValidation;
 
-public interface IResourceDescriptor<TAction, TUser>;
+public interface IResourceDescriptor<TAction, TUser>
+    where TAction : Enum;

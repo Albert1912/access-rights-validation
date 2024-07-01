@@ -11,7 +11,9 @@ internal class ActionGuard<TDescriptor, TAction, TUser> : BaseActionGuard<TDescr
         _guard = guard;
     }
 
-    public override Task<bool> Execute(IValidationContext<TDescriptor, TAction, TUser> validationContext)
+    public override Task<bool> Execute(
+        IValidationContext<TDescriptor, TAction, TUser> validationContext,
+        CancellationToken cancellationToken = default)
     {
         return Task.FromResult(_guard(validationContext));
     }

@@ -10,5 +10,5 @@ public interface IResourceActionConfigurationBuilder<TDescriptor, TAction, out T
         Predicate<IValidationContext<TDescriptor, TAction, TUser>> guard);
 
     IResourceActionConfigurationBuilder<TDescriptor, TAction, TUser> AddGuard(
-        Func<IValidationContext<TDescriptor, TAction, TUser>, Task<bool>> guard);
+        Func<IValidationContext<TDescriptor, TAction, TUser>, CancellationToken, Task<bool>> guard);
 }
