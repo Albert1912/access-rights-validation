@@ -7,7 +7,7 @@ internal class AccessRightsValidatorBuilder<TDescriptor, TAction, TUser>
     where TDescriptor : IResourceDescriptor<TAction, TUser>
     where TAction : Enum
 {
-    private readonly Dictionary<Type, object> _customData = [];
+    private readonly Dictionary<Type, List<object>> _customData = [];
     private readonly ResourceConfiguration<TDescriptor, TAction, TUser> _resourceConfiguration;
 
     private ActionConfiguration<TDescriptor, TAction, TUser>? _validateForAction;
@@ -20,7 +20,13 @@ internal class AccessRightsValidatorBuilder<TDescriptor, TAction, TUser>
     public IAccessRightsValidatorBuilder<TDescriptor, TAction, TUser> SetCustomData<TData>(TData data)
         where TData : class
     {
-        _customData.TryAdd(typeof(TData), data);
+        if (_customData.TryGetValue(typeof(TData), out var collection) is false)
+        {
+            collection = new List<object>();
+            _customData.Add(typeof(TData), collection);
+        }
+
+        collection.Add(data);
 
         return this;
     }
@@ -54,6 +60,7 @@ internal class AccessRightsValidatorBuilder<TDescriptor, TAction, TUser>
         return new AccessRightsValidator<TDescriptor, TAction, TUser>(
             _customData
                 .Where(x => _validateForAction.RequiredCustomDataTypes.Contains(x.Key))
+                .Select(x => new KeyValuePair<Type, List<object>>(x.Key, x.Value.ToList()))
                 .ToDictionary(),
             _validateForAction.ActionGuards);
     }

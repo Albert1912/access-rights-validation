@@ -6,11 +6,11 @@ internal class AccessRightsValidator<TDescriptor, TAction, TUser> : IAccessRight
     where TDescriptor : IResourceDescriptor<TAction, TUser>
     where TAction : Enum
 {
-    private readonly Dictionary<Type, object> _customData;
+    private readonly Dictionary<Type, List<object>> _customData;
     private readonly IEnumerable<BaseActionGuard<TDescriptor, TAction, TUser>> _actionGuards;
 
     public AccessRightsValidator(
-        Dictionary<Type, object> customData,
+        Dictionary<Type, List<object>> customData,
         IEnumerable<BaseActionGuard<TDescriptor, TAction, TUser>> actionGuards)
     {
         _customData = customData;

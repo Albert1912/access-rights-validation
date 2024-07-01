@@ -6,4 +6,5 @@ public interface IValidationContext<TDescriptor, TAction, out TUser>
 {
     TUser Actor { get; }
     TData GetCustomData<TData>();
+    IEnumerable<TData> GetAllCustomData<TData>();
 }
